@@ -1,0 +1,99 @@
+#####################################
+# CREATE REPOSITORY FOR POISON LINUX
+# THKS ALIEN BOB!
+#####################################
+
+# The directory of the Slackware package repository:
+REPOSROOT="/root/poison-linux/" # set by deployfxp
+
+# Repository maintainer
+REPOSOWNER="Jefferson Carneiro"
+
+# The GPG key for the repository owner can contain a different string than
+# the value of $REPOSOWNER . If you leave $REPOSOWNERGPG empty, the script will
+# use the value you've set for $REPOSOWNER instead to search the GPG keyfile.
+REPOSOWNERGPG="E3E90D56"
+
+# Under what URL is the repository accessible:
+DL_URL=""
+
+# The title of the generated RSS feed:
+RSS_TITLE="Poison Linux Package Repository"
+
+# The logo picture used for the RSS feed:
+RSS_ICON=""
+
+# The URL linked to when clicking on the logo:
+RSS_LINK=""
+
+# URL to the full changelog.txt:
+RSS_CLURL=""
+
+# The descriptive text for the RSS feed:
+RSS_DESCRIPTION="Poison LInux Package Repository"
+
+# Maximum number of RSS feed entries to display:
+#RSS_FEEDMAX=15
+
+# The RSS generator must use a unique feed identifier.
+# Generate one for your feed by using the string returned by "uuidgen -t":
+RSS_UUID="23501cfa-de88-11ee-8f3f-0800270e08a0"
+
+# Either use gpg or gpg2:
+GPGBIN="/usr/bin/gpg"
+
+# Optionally use gpg-agent to cache the gpg passphrase instead of letting the
+# script keep it in the environment (note that if you define USE_GPGAGENT=1
+# but gpg-agent is not running, you will get prompted for a passphrase every
+# single time gpg runs):
+#USE_GPGAGENT=0
+
+# Generate slack-requires, slack-suggests, and slack-conflicts lines in the
+# metadata files by setting FOR_SLAPTGET to "1" -- these are used by slapt-get
+#FOR_SLAPTGET=0
+
+# Follow symlinks in case the repository has symlinks like 14.0 -> 13.37
+# indicating that one package works for those two Slackware releases.
+# If the script does _not_ follow symlinks, then the symlinks will appear in
+# the repository listing instead of the packages they point to.
+#FOLLOW_SYMLINKS=1
+
+# If the repository has separate package subdirectories (for separate
+# Slackware releases or architectures) then define them here.
+# Separate FILELIST.TXT, MANIFEST etc.. files will be created for all of them:
+REPO_SUBDIRS="slackware64 patches sunflower"
+
+# If you want to exclude certain directories or files from being included
+# in the repository metadata, define them here (space-separated).
+# Example: REPO_EXCLUDES="RCS logs .genreprc"
+REPO_EXCLUDES=" EFI/ isolinux/ kernels/ scripts/ kernels/ source/ .htaccess HEADER.html"
+
+# ---------------------------------------------------------------------------
+
+# By default, no debug messages
+#DEBUG=0
+
+# Timestamp to be used all around the script:
+#UPDATEDATE="$(LC_ALL=C date -u)"
+
+# A value of "yes" means that .meta .md5 and/or .asc files are
+# always (re)generated.
+# while "no" means: only generate these files if they are missing.
+#FORCEMD5="no"    # .md5 files
+#FORCEPKG="no"    # .meta files
+#FORCEASC="no"    # .asc files
+#TOUCHUP="no"     # rsync has issues with files whose content has changed, but
+                 # both size and timestamp remain unchanged (needs expensive
+                 # '--checksum' to detect these file changes)
+# We may have a need to only update the ChangeLog files:
+#RSSONLY="no"     # ChangeLog .rss and .txt
+# For a sub-repository we do not have a ChangeLog:
+#CHANGELOG="yes"
+
+# Variable used to limit the search for packages which lack .md5/.asc file,
+# to those packages changed less than NOTOLDER days ago.
+#NOTOLDER=""
+
+# Variable used to import the content of a text file as the new ChangeLog.txt
+# entry. If empty, you will be asked to type a new entry yourself.
+#LOGINPUT=""
